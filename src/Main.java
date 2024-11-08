@@ -42,5 +42,19 @@ public class Main {
 //        String s2 = ((String)words.get(0))+((String)words.get(1));
 //        assert s2.equals("Hello world!");
 
+        // Cast-iron guarante:
+        // the implicit casts added by the compilation of generics never fail.
+
+        /**
+         * Generics Versus Templates Generics in Java resemble templates in C++. There are just two important things to bear in mind about the relationship between Java generics and C++ templates: syntax and semantics. The syntax is deliberately similar and the semantics are deliberately different.
+         * Syntactically, angle brackets were chosen because they are familiar to C++ users, and because square brackets would be hard to parse. However, there is one difference in syntax. In C++, nested parameters require extra spaces, so you see things like this:
+         *
+         * List<List<String>>
+         *
+         * In Java, no spaces are required, and it’s fine to write this:
+         *
+         * List<List<String>>
+         */
+
     }
 }
