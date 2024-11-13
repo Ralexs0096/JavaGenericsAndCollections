@@ -32,5 +32,14 @@ public class BoxingAndUnboxing {
 //        List<Integer> ints = new ArrayList<Integer>();
 //        ints.add(1);
 //        int n = ints.get(0).intValue();
+
+
+    }
+
+    // the argument type must always be bound to reference types.
+    public static int sum(List<Integer> nums) {
+        int s = 0;
+        for (int n : nums) {s += n; }; // <--- here, the unboxing occurs.
+        return  s; // result types may be either primitive or reference types.
     }
 }
