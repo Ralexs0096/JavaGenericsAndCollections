@@ -38,8 +38,8 @@ public class BoxingAndUnboxing {
 
     // the argument type must always be bound to reference types.
     public static int sum(List<Integer> nums) {
-        int s = 0;
-        for (int n : nums) {s += n; }; // <--- here, the unboxing occurs.
+        Integer s = 0; // <--- using the reference type work as well.
+        for (int n : nums) {s += n; };
         return  s; // result types may be either primitive or reference types.
     }
 }
