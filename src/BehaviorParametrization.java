@@ -11,25 +11,26 @@ class  Apple {
     }
 }
 
+// let define a contract to model the selection criteria (predicate)
+interface ApplePredicate{
+    boolean test (Apple apple);
+}
+
 public class BehaviorParametrization {
     enum Color { RED, GREEN };
 
    // Third attempt: filtering with every attribute you can think of
-   public static List<Apple> filterApples(List<Apple> inventory, Color color, int weight, boolean flag) {
-       List<Apple>result = new ArrayList<>();
 
-       for (Apple apple: inventory) {
-           if ((flag && apple.getColor().equals(color)) ||
-               (!flag &&apple.getWeight() >weight)) {
-               result.add(apple);
-           }
+   public class AppleHeavyWeightPredicate implements ApplePredicate {
+       public boolean test(Apple apple) {
+           return apple.getWeight() >150;
        }
-       return result;
    }
-
-   // An ugly way to select color or weight  ------------>
-//    List<Apple>greenApples = filterApples(inventory, GREEN, 0, true);
-//    List<Apple>heavyApples = filterApples(inventory, null, 150, false);
+    public class AppleGreenColorPredicate implements ApplePredicate {
+        public boolean test(Apple apple) {
+            return Color.GREEN.equals(apple.getColor());
+        }
+    }
 
 }
 
