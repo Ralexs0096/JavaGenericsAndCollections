@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,34 +14,22 @@ class  Apple {
 public class BehaviorParametrization {
     enum Color { RED, GREEN };
 
-    // Second attempt: parameterizing the color
-    public static List<Apple> filterApplesByColor(List<Apple> inventory, Color color) {
-        List<Apple> result = new ArrayList<>();
+   // Third attempt: filtering with every attribute you can think of
+   public static List<Apple> filterApples(List<Apple> inventory, Color color, int weight, boolean flag) {
+       List<Apple>result = new ArrayList<>();
 
-        for (Apple apple: inventory) {
-            if( apple.getColor().equals(color) ) {
-                result.add(apple);
-            }
-        }
+       for (Apple apple: inventory) {
+           if ((flag && apple.getColor().equals(color)) ||
+               (!flag &&apple.getWeight() >weight)) {
+               result.add(apple);
+           }
+       }
+       return result;
+   }
 
-        return result;
-    }
+   // An ugly way to select color or weight  ------------>
+//    List<Apple>greenApples = filterApples(inventory, GREEN, 0, true);
+//    List<Apple>heavyApples = filterApples(inventory, null, 150, false);
 
-//    List<Apple>greenApples = filterApplesByColor(inventory, GREEN);
-//    List<Apple>redApples = filterApplesByColor(inventory, RED);
-
-    // now we create a new method to filter the apples by weight, but
-    // this new method breaks the DRY principle since repeat code form our initial method `filterApplesByColor`
-    public static List<Apple> filterApplesByWeight(List<Apple>inventory, int weight) {
-        List<Apple>result = new ArrayList<>();
-        for (Apple apple: inventory){
-            if ( apple.getWeight() > weight) {
-                result.add(apple);
-            }
-        }
-        return result;
-    }
-
-    // when you find yourself writing nearly repeated code, try to abstract instead.
 }
 
