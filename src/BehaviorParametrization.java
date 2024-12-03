@@ -10,14 +10,16 @@ class  Apple {
 public class BehaviorParametrization {
     enum Color { RED, GREEN };
 
-    // this initial resolves the problem of filter apples by green color
-    public static List<Apple> filterGreenApples(List<Apple> inventory) {
+    // Second attempt: parameterizing the color
+    public static List<Apple> filterApplesByColor(List<Apple> inventory, Color color) {
         List<Apple> result = new ArrayList<>();
+
         for (Apple apple: inventory) {
-            if( Color.GREEN.equals(apple.getColor())) {
+            if( apple.getColor().equals(color) ) {
                 result.add(apple);
             }
         }
+
         return result;
     }
 
