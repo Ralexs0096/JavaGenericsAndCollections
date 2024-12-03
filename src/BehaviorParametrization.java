@@ -23,5 +23,9 @@ public class BehaviorParametrization {
         return result;
     }
 
+//    List<Apple>greenApples = filterApplesByColor(inventory, GREEN);
+//    List<Apple>redApples = filterApplesByColor(inventory, RED);
+
     // when you find yourself writing nearly repeated code, try to abstract instead.
 }
+
