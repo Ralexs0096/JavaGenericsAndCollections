@@ -32,5 +32,24 @@ public class BehaviorParametrization {
         }
     }
 
+
+    /**
+     * This is what behavior parameterization means: the ability to tell a method
+     * to take multiple behaviors (or strategies) as parameters and use them internally
+     * to accomplish different behaviors.
+     */
+
+    // attempt fourth: now our method receive a predicate instead of multiple parameters
+    // (filtering by abstract criteria)
+    public static List<Apple> filterApples(List<Apple> inventory,
+                                           ApplePredicate p) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple : inventory) {
+            if (p.test(apple)) {
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 }
 
