@@ -32,6 +32,13 @@ public class BehaviorParametrization {
         }
     }
 
+    // now we can create multiple predicates and pass them to our filter function
+    public class AppleRedAndHeavyPredicate implements ApplePredicate {
+        public boolean test(Apple apple){
+            return Color.RED.equals(apple.getColor())
+                    &&apple.getWeight() >150;
+        }
+    }
 
     /**
      * This is what behavior parameterization means: the ability to tell a method
@@ -51,5 +58,10 @@ public class BehaviorParametrization {
         }
         return result;
     }
+
+    // ------------- Usage of the new Predicate -------------
+//    List<Apple>redAndHeavyApples =
+//            filterApples(inventory, new AppleRedAndHeavyPredicate());
+
 }
 
