@@ -30,6 +30,10 @@ class AppleGreenColorPredicate implements ApplePredicate {
     }
 }
 
+interface PrettyPrintApple {
+    String prettyPrint(Apple apple);
+}
+
 // now we can create multiple predicates and pass them to our filter function
 class AppleRedAndHeavyPredicate implements ApplePredicate {
     public boolean test(Apple apple){
@@ -48,6 +52,15 @@ public class BehaviorParametrization {
             }
         }
         return result;
+    }
+
+    // quiz 2.1: Write a flexible prettyPrintApple method
+
+    public static void prettyPrintApple(List<Apple> inventory, PrettyPrintApple p) {
+        for(Apple apple : inventory) {
+            String output = p.prettyPrint(apple);
+            System.out.println(output);
+        }
     }
 }
 
