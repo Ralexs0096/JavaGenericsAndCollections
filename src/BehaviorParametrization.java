@@ -54,6 +54,12 @@ class AppleFancyFormatter implements PrettyPrintApple {
     }
 }
 
+class AppleSimpleFormatter implements PrettyPrintApple {
+    public String prettyPrint(Apple apple) {
+        return "An apple of " + apple.getWeight() + "g";
+    }
+}
+
 /** **************************** Main Class of the chapter ************************************ */
 public class BehaviorParametrization {
     public static List<Apple> filterApples(List<Apple> inventory,
