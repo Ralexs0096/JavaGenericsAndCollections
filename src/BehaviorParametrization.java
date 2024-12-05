@@ -81,5 +81,16 @@ public class BehaviorParametrization {
             System.out.println(output);
         }
     }
+
+    /**
+     * using anonymous classes could be better to eliminate the necessity of doing a lot of instances,
+     * but it doesn't fix the verbosity issue
+     */
+
+//    List<Apple> redApples = filterApples(inventory, new ApplePredicate() {
+//        public boolean test(Apple apple){
+//            return Color.RED.equals(apple.getColor());
+//        }
+//    });
 }
 
