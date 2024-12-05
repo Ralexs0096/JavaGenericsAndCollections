@@ -92,5 +92,10 @@ public class BehaviorParametrization {
 //            return Color.RED.equals(apple.getColor());
 //        }
 //    });
+
+    // Sixth attempt: using lambda expression
+
+//    List<Apple>result =
+//            filterApples(inventory, (Apple apple) -> Color.RED.equals(apple.getColor()));
 }
 
