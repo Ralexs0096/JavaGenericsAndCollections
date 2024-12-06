@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 class  Apple {
     public String getColor(){
@@ -11,25 +12,31 @@ class  Apple {
     }
 }
 
-enum Color { RED, GREEN };
+enum Color {
+    RED, GREEN
+}
 
-/** **************************************************************** */
-// let define a contract to model the selection criteria (predicate)
-interface ApplePredicate{
-    boolean test (Apple apple);
+interface ApplePredicate<T> {
+    boolean test (T t);
 }
 
 /** **************************** Main Class of the chapter ************************************ */
+// seventh attempt: abstracting over List type
 public class BehaviorParametrization {
-    public static List<Apple> filterApples(List<Apple> inventory,
-                                           ApplePredicate p) {
-        List<Apple> result = new ArrayList<>();
-        for (Apple apple : inventory) {
-            if (p.test(apple)) {
-                result.add(apple);
+    List<Apple> inventory = new ArrayList<>();
+
+    // Introduces a type parameter T (manages to find the sweet spot between flexibility and conciseness)
+    public static <T> List<T> filterApples(List<T> list,
+                                           Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (p.test(e)) {
+                result.add(e);
             }
         }
         return result;
     }
+
+    List<Apple> redApples = filterApples(inventory, (Apple apple) -> Color.RED.equals(apple.getColor()));
 }
 
